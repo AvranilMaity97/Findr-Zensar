@@ -1,0 +1,88 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding: 0px 10%;
+  background-color: #e63946;
+  box-shadow: 0px 0px 10px rgb(19 33 42/ 50%);
+
+  .brand {
+    .logo {
+      font-family: "Abril Fatface", cursive;
+      font-size: 55px;
+      color: #fff;
+    }
+  }
+  .hamburger {
+    position: absolute;
+    height: 74px;
+    padding: 0px 20px;
+    cursor: pointer;
+    img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  .hamburger:hover {
+    background-color: #da1b2b;
+  }
+  .nav-items {
+    background-color: #e63946;
+    position: absolute;
+
+    .nav-item {
+      transition: all 0.2s ease-out;
+      height: 74px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f1faee;
+      font-weight: normal;
+      font-size: 20px;
+      padding: 0px 18px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .active {
+      color: #fff;
+      font-weight: 500;
+    }
+    .nav-item:hover {
+      background-color: #da1b2b;
+    }
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 10%;
+    top: 0px;
+  }
+  .nav-items {
+    top: 74px;
+    right: 0%;
+    z-index: 2;
+    flex-direction: column;
+    width: 100%;
+    transform: translateY(-296px);
+  }
+}
+@media screen and (min-width: 787px) {
+  .hamburger {
+    display: none;
+  }
+  .nav-items {
+    top: 0px;
+    right: 10%;
+    display: flex;
+    justify-content: space-between;
+    width: 286px;
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "findr-8172c": {
+      "hosting": {
+        "zensar-frontend": [
+          "findr-8172c"
+        ]
+      }
+    }
+  }
+}

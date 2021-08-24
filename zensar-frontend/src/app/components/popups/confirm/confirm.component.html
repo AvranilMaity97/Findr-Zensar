@@ -1,0 +1,17 @@
+<div class="popup-container">
+  <div class="popup">
+    <div class="popup-header">
+      {{ popupTitle }}
+      <img src="assets/icons/close.svg" (click)="onClick(false)" alt="" />
+    </div>
+    <div class="question">{{ question }}</div>
+    <div class="actions">
+      <button class="button" class="yes" (click)="onClick(true)">
+        {{ yesValue }}
+      </button>
+      <button class="button" class="no" (click)="onClick(false)">
+        {{ noValue }}
+      </button>
+    </div>
+  </div>
+</div>

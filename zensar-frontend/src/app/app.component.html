@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="base">
+  <router-outlet></router-outlet>
+</div>
+
+<app-notification
+  class="notification"
+  *ngIf="notificationToggle"
+  [text]="notificationText"
+></app-notification>
+
+<br />
+<br />
+<br />
+<br />

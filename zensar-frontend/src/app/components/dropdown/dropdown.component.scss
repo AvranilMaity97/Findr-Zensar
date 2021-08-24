@@ -1,0 +1,67 @@
+.dropdown {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  cursor: pointer;
+  .selected-value {
+    border-radius: 3px;
+    width: 100%;
+    height: 47px;
+    background-color: #fff;
+    border: 1px solid #457b9d;
+    font-size: 16px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px rgb(69 123 157 / 50%);
+    .sort {
+      margin-right: 10px;
+    }
+    input {
+      width: 80%;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      font-size: 16px;
+      color: #457b9d;
+    }
+    ::placeholder {
+      color: #457b9d;
+    }
+  }
+  .selector {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 47px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px rgb(69 123 157 / 30%);
+
+    .items {
+      font-size: 16px;
+      .item {
+        width: 100%;
+        height: 47px;
+        padding: 0px 30px;
+        display: flex;
+        align-items: center;
+        color: #2c4e63;
+      }
+      .item:hover {
+        background-color: #f6f6f6;
+      }
+      .item:first-child {
+        border-radius: 3px 3px 0px 0px;
+      }
+      .item:last-child {
+        border-radius: 0px 0px 3px 3px;
+      }
+    }
+  }
+}

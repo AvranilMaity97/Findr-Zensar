@@ -1,0 +1,104 @@
+<div class="add-user">
+  <div class="add-user-content">
+    <div class="bread-crumb">
+      <div class="home" [routerLink]="['/']">Home</div>
+      <img src="assets/icons/bread-crumb.svg" alt="" />
+      <div class="add" *ngIf="!editFlag">Add User</div>
+      <div class="edit" *ngIf="editFlag">Edit User</div>
+    </div>
+    <div class="head-section">
+      <div class="title" *ngIf="!editFlag">Add User</div>
+      <div class="title" *ngIf="editFlag">Edit User</div>
+    </div>
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+      <div class="form-controls">
+        <div class="image">
+          <img
+            class="img-icon"
+            *ngIf="previewURL == undefined"
+            src="assets/icons/add-photo.svg"
+            alt=""
+          />
+          <img
+            class="img-real"
+            [src]="previewURL"
+            *ngIf="previewURL != undefined"
+            alt=""
+          />
+
+          <input
+            #imageInput
+            class="file-input"
+            type="file"
+            (change)="imageInputChange(imageInput)"
+            accept="image/*"
+          />
+        </div>
+        <div class="details">
+          <label for="name">Name</label>
+          <div class="input">
+            <input
+              type="text"
+              formControlName="name"
+              placeholder="Enter Name"
+              #name
+            />
+            <div
+              class="error"
+              *ngIf="
+                !addUserForm.get('name').pristine &&
+                addUserForm.get('name').value == ''
+              "
+            >
+              Name is mandatory.
+            </div>
+          </div>
+          <label for="about">About</label>
+          <div class="text-area about">
+            <textarea
+              formControlName="about"
+              placeholder="So, what's your story?"
+            ></textarea>
+          </div>
+        </div>
+        <div class="details">
+          <label for="address">Address</label>
+          <div class="text-area">
+            <textarea
+              formControlName="address"
+              placeholder="eg. 407A - Yashwin"
+            ></textarea>
+          </div>
+          <label for="city">City</label>
+          <div class="input">
+            <input
+              type="text"
+              formControlName="city"
+              placeholder="eg. Hinjewadi"
+            />
+          </div>
+          <label for="state">State</label>
+          <div class="input">
+            <input
+              type="text"
+              formControlName="state"
+              placeholder="eg. Maharashtra"
+            />
+          </div>
+          <div class="actions">
+            <button
+              type="submit"
+              [disabled]="!addUserForm.valid"
+              class="submit"
+            >
+              Save
+            </button>
+            <button type="button" class="cancel" (click)="onCancel()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

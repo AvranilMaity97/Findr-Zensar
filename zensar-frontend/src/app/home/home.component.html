@@ -1,0 +1,73 @@
+<div class="home">
+  <div class="home-content">
+    <div class="search-pannel">
+      <div class="search">
+        <input
+          type="text"
+          placeholder="Search by Name"
+          (input)="filter($event.target.value)"
+        />
+        <div class="img">
+          <img src="assets/icons/search.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="action-pannel">
+      <div class="left-actions">
+        <div class="page-marker" *ngIf="users.length > 0">
+          Showing <span class="marker"> {{ 1 }}</span> to
+          <span class="marker">{{ users.length }} </span> of
+          <span class="marker">{{ users.length }}</span> users
+        </div>
+        <div class="page-marker" *ngIf="users.length == 0">
+          No user available
+        </div>
+      </div>
+      <div class="right-actions">
+        <div class="dropdown">
+          <app-dropdown
+            [placeholder]="'Sort By'"
+            [type]="'sort'"
+            [options]="['Recently Created', 'Recently Modified']"
+            (change)="sort($event)"
+          ></app-dropdown>
+        </div>
+        <button
+          type="button"
+          class="add-user"
+          routerLink="add-user"
+          #addUserButton
+        >
+          Add User
+        </button>
+      </div>
+    </div>
+    <div
+      class="cards-container"
+      (resized)="setCardDisplay()"
+      #cardsContainerRef
+    >
+      <div
+        class="card"
+        *ngFor="let user of users"
+        #cardRef
+        (click)="openUser(user)"
+      >
+        <div class="card-img">
+          <img [src]="user.Image" alt="" />
+        </div>
+        <div class="layer-1" #layer1Ref></div>
+        <div class="layer-2" #layer2Ref>
+          <div class="name">{{ user.name }}</div>
+          <div
+            class="address"
+            *ngIf="user.address != undefined || user.city != undefined"
+          >
+            {{ user.address }} <br *ngIf="user.address != undefined" />
+            {{ user.city }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

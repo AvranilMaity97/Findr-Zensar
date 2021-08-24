@@ -1,0 +1,126 @@
+<div class="user">
+  <div class="user-content" *ngIf="dataLoaded">
+    <div class="bread-crumb">
+      <div class="home" [routerLink]="['/']">Home</div>
+      <img src="assets/icons/bread-crumb.svg" alt="" />
+      <div class="add">{{ user.name }}</div>
+    </div>
+    <div class="header">User Profile</div>
+    <div class="profile">
+      <div class="half-section image-section">
+        <div class="image">
+          <img src="{{ user.Image }}" alt="" />
+        </div>
+      </div>
+      <div class="half-section detail-section">
+        <div class="name">
+          {{ user.name }}
+          <div class="actions">
+            <div class="edit">
+              <img src="assets/icons/edit.svg" (click)="onEdit()" alt="" />
+            </div>
+            <div class="delete" (click)="togglePopup(false)">
+              <img src="assets/icons/delete.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="address">
+          <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+            <div
+              class="no-address"
+              *ngIf="
+                !user.address && !user.state && !user.city && !addressToggle
+              "
+            >
+              No address provided,
+              <span (click)="toggleAddress()">add one?</span>
+            </div>
+            <div
+              class="address-val"
+              *ngIf="user.address || user.city || user.state"
+            >
+              {{ user.address }}
+              <div class="address-line-2">
+                <span class="city">{{ user.city }}</span>
+                <span *ngIf="user.state.length > 0">,&nbsp;</span>
+                <span class="state">{{ user.state }}</span>
+              </div>
+            </div>
+            <div class="edit-address" *ngIf="addressToggle">
+              <label for="address">Address</label>
+              <div class="text-area">
+                <textarea
+                  formControlName="address"
+                  placeholder="eg. 407A - Yashwin"
+                ></textarea>
+                <div
+                  class="error"
+                  *ngIf="
+                    !addressForm.get('address').pristine &&
+                    addressForm.get('address').value == ''
+                  "
+                >
+                  Please provide locality info.
+                </div>
+              </div>
+              <label for="city">City</label>
+              <div class="input">
+                <input
+                  type="text"
+                  formControlName="city"
+                  placeholder="eg. Hinjewadi"
+                />
+                <div
+                  class="error"
+                  *ngIf="
+                    !addressForm.get('city').pristine &&
+                    addressForm.get('city').value == ''
+                  "
+                >
+                  City is mandatory.
+                </div>
+              </div>
+              <label for="state">State</label>
+              <div class="input">
+                <input
+                  type="text"
+                  formControlName="state"
+                  placeholder="eg. Maharashtra"
+                />
+                <div
+                  class="error"
+                  *ngIf="
+                    !addressForm.get('state').pristine &&
+                    addressForm.get('state').value == ''
+                  "
+                >
+                  State is mandatory.
+                </div>
+              </div>
+              <div class="actions">
+                <button type="submit" class="submit">Save</button>
+                <button type="button" class="cancel" (click)="toggleAddress()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="label" *ngIf="!addressToggle && user.about">About</div>
+        <div class="about" *ngIf="!addressToggle && user.about">
+          {{ user.about }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm
+  class="popup"
+  *ngIf="popupToggle"
+  [popupTitle]="'Warning'"
+  [question]="'Delete user permanently?'"
+  [yesValue]="'Yes, proceed'"
+  [noValue]="'No, continue'"
+  (action)="togglePopup($event)"
+></app-confirm>

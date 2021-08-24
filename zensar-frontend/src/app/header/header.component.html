@@ -1,0 +1,19 @@
+<div class="header" #headerRef>
+  <div class="brand">
+    <div class="logo">Findr</div>
+  </div>
+  <div class="hamburger" (click)="toggle()">
+    <img src="assets/icons/hamburger.svg" alt="" />
+  </div>
+  <div class="nav-items" #navItemsRef (click)="toggle()">
+    <div class="nav-item" routerLinkActive="active" routerLink="home">
+      <div class="link">Home</div>
+    </div>
+    <div class="nav-item" routerLinkActive="active" routerLink="about">
+      <div class="link">About</div>
+    </div>
+    <div class="nav-item" routerLinkActive="active" routerLink="help">
+      <div class="link">Help</div>
+    </div>
+  </div>
+</div>

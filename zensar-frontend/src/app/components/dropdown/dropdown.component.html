@@ -1,0 +1,28 @@
+<div class="dropdown" #dropdownRef>
+  <div class="selected-value" (click)="toggle()">
+    <img
+      src="assets/icons/sort.svg"
+      class="sort"
+      *ngIf="type == 'sort'"
+      alt=""
+    />
+    <input
+      type="text"
+      [attr.disabled]="''"
+      [placeholder]="placeholder"
+      #inputRef
+    />
+    <img src="assets/icons/down.svg" alt="" />
+  </div>
+  <div class="selector" *ngIf="optionsToggle">
+    <div class="items">
+      <div
+        class="item"
+        *ngFor="let option of options"
+        (click)="selectOption(option)"
+      >
+        {{ option }}
+      </div>
+    </div>
+  </div>
+</div>
