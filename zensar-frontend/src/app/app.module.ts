@@ -21,9 +21,11 @@ import { ConfirmComponent } from './components/popups/confirm/confirm.component'
 import { HeaderComponent } from './header/header.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NotificationComponent } from './components/popups/notification/notification.component';
+import { AboutComponent } from './about/about.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     HomeComponent,
     AddUserComponent,
@@ -32,7 +34,9 @@ import { NotificationComponent } from './components/popups/notification/notifica
     HeaderComponent,
     DropdownComponent,
     NotificationComponent,
-  ],
+    AboutComponent,
+      HelpComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

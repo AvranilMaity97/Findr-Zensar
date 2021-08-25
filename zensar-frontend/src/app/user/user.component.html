@@ -98,7 +98,13 @@
                 </div>
               </div>
               <div class="actions">
-                <button type="submit" class="submit">Save</button>
+                <button
+                  type="submit"
+                  class="submit"
+                  [disabled]="!addressForm.valid"
+                >
+                  Save
+                </button>
                 <button type="button" class="cancel" (click)="toggleAddress()">
                   Cancel
                 </button>

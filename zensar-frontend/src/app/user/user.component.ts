@@ -26,17 +26,18 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-
-    this.route.params.subscribe((data) => {
-      this.user = this.userService.getUserById(data.id);
-      if (!this.user) {
-        this.router.navigate(['/']);
-      } else this.dataLoaded = true;
-    });
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.dataLoaded = true;
+    // this.route.params.subscribe((data) => {
+    //   this.user = this.userService.getUserById(data.id);
+    //   if (!this.user) {
+    //     this.router.navigate(['/']);
+    //   } else this.dataLoaded = true;
+    // });
   }
   initForm() {
     this.addressForm = this.formBuilder.group({
-      address: ['', Validators.required],
+      address: [''],
       city: ['', Validators.required],
       state: ['', Validators.required],
     });

@@ -2,10 +2,8 @@
   "hosting": [
     {
       "target": "zensar-frontend",
-      "public": "dist/zensar-frontend",
-      "ignore": [
-        "**/.*"
-      ],
+      "public": "dist/",
+      "ignore": ["**/.*"],
       "headers": [
         {
           "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",

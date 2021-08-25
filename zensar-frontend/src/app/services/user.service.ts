@@ -38,8 +38,11 @@ export class UserService {
       addressData
     );
   }
-  updateUserDetails(userId: string, data: any) {
-    return this.http.patch(environment.backendUrl + 'users/' + userId, data);
+  updateUserDetails(userId: string, userData: any) {
+    return this.http.patch(
+      environment.backendUrl + 'users/' + userId,
+      userData
+    );
   }
 
   deleteUser(userId) {

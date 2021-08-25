@@ -54,9 +54,7 @@ export class AddUserComponent implements OnInit {
         modifiedOn: new Date(),
       });
     } else {
-      let user: User = this.userService.userData.filter((user) => {
-        return user._id == this.userId;
-      })[0];
+      let user: User = JSON.parse(sessionStorage.getItem('user'));
       this.addUserForm = this.formBuilder.group({
         _id: user._id,
         name: [user.name, Validators.required],
@@ -101,6 +99,7 @@ export class AddUserComponent implements OnInit {
                 this.addUserForm.get('name').value.split(' ')[0]
               } has been added!`;
               this.userService.notification.next(true);
+
               this.location.back();
             },
             (err) => {
@@ -132,6 +131,10 @@ export class AddUserComponent implements OnInit {
                 (data) => {
                   this.userService.notificationText = `Changes saved!`;
                   this.userService.notification.next(true);
+                  sessionStorage.setItem(
+                    'user',
+                    JSON.stringify(this.addUserForm.value)
+                  );
                   this.location.back();
                 },
                 (err) => {
@@ -149,6 +152,10 @@ export class AddUserComponent implements OnInit {
               let i = 0;
 
               this.userService.notificationText = `Changes saved!`;
+              sessionStorage.setItem(
+                'user',
+                JSON.stringify(this.addUserForm.value)
+              );
               this.userService.notification.next(true);
               this.userService.getUserData().subscribe((data) => {
                 this.userService.userData = data;

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:4200/',
-  backendUrl: 'http://localhost:3000/api/v1/',
+  backendUrl: 'https://findr-backend.herokuapp.com/api/v1/',
   imgurBaseUrl: 'https://api.imgur.com/',
   firebaseConfig: {
     apiKey: 'AIzaSyC29nX596od5rpDppgYqds0bYj2224znOk',

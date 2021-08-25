@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema({
   Image: { type: String },
   about: {
     type: String,
-    required: [true, "must provide some context in 'about'"],
   },
   address: { type: String },
   city: { type: String },

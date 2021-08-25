@@ -82,6 +82,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
       });
     }
+    this.users.forEach((user) => {
+      console.log(user.name, user.createdOn);
+    });
   }
   openUser(user) {
     sessionStorage.setItem('user', JSON.stringify(user));
