@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   users: User[] = [];
   usersBackup: User[] = [];
+  loading: Boolean = true;
+  error: Boolean = false;
   constructor(
     private renderer: Renderer2,
     private userService: UserService,
@@ -35,6 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.userService.getUserData().subscribe((data) => {
+      this.loading = false;
       this.users = data.slice(0);
       this.usersBackup = data.slice(0);
       this.userService.userData = data.slice(0);

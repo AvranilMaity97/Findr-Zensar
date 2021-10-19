@@ -19,7 +19,8 @@
           <span class="marker">{{ users.length }} </span> of
           <span class="marker">{{ users.length }}</span> users
         </div>
-        <div class="page-marker" *ngIf="users.length == 0">
+        <div class="page-marker" *ngIf="loading">Loading users...</div>
+        <div class="page-marker" *ngIf="!loading && users.length == 0">
           No user available
         </div>
       </div>
@@ -45,6 +46,7 @@
     <div
       class="cards-container"
       (resized)="setCardDisplay()"
+      *ngIf="users.length != 0"
       #cardsContainerRef
     >
       <div
@@ -67,6 +69,19 @@
             {{ user.city }}
           </div>
         </div>
+      </div>
+    </div>
+    <div class="cards-container" *ngIf="users.length == 0">
+      <app-loader *ngIf="loading"></app-loader>
+      <div
+        [ngStyle]="{
+          display: 'flex',
+          'justify-content': 'center',
+          'align-items': 'center'
+        }"
+        *ngIf="!loading"
+      >
+        No users available
       </div>
     </div>
   </div>

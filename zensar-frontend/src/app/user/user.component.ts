@@ -78,13 +78,16 @@ export class UserComponent implements OnInit {
           this.addressToggle = false;
           this.userService.notificationText = 'Address has been saved!';
           this.userService.notification.next(true);
-          this.userService.userData.forEach((user) => {
-            if (user._id == this.user._id) {
-              this.user.address = this.addressForm.get('address').value;
-              this.user.city = this.addressForm.get('city').value;
-              this.user.state = this.addressForm.get('state').value;
-            }
-          });
+          this.user.address = this.addressForm.get('address').value;
+          this.user.city = this.addressForm.get('city').value;
+          this.user.state = this.addressForm.get('state').value;
+          // this.userService.userData.forEach((user) => {
+          //   if (user._id == this.user._id) {
+          //     this.user.address = this.addressForm.get('address').value;
+          //     this.user.city = this.addressForm.get('city').value;
+          //     this.user.state = this.addressForm.get('state').value;
+          //   }
+          // });
         },
         (err) => {
           this.userService.notificationText = `Address couldn't be saved!`;

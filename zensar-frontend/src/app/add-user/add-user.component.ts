@@ -34,11 +34,8 @@ export class AddUserComponent implements OnInit {
         this.userId = params.get('id');
       }
     });
-    if (this.userService.userData.length == 0) {
-      this.router.navigate(['/']);
-    } else {
-      this.initForm();
-    }
+
+    this.initForm();
   }
 
   initForm() {

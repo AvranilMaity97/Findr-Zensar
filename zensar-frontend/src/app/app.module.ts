@@ -23,9 +23,10 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NotificationComponent } from './components/popups/notification/notification.component';
 import { AboutComponent } from './about/about.component';
 import { HelpComponent } from './help/help.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     HomeComponent,
     AddUserComponent,
@@ -35,8 +36,9 @@ import { HelpComponent } from './help/help.component';
     DropdownComponent,
     NotificationComponent,
     AboutComponent,
-      HelpComponent
-   ],
+    HelpComponent,
+    LoaderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

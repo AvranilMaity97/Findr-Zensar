@@ -1,4 +1,5 @@
 The application, Findr, has been built using MEAN stack. 
+Live URL:  https://findr-8172c.web.app/
 
 Please run the command "npm install" inside both the directories:
 1. zensar-frontend
@@ -6,7 +7,7 @@ Please run the command "npm install" inside both the directories:
 
 In the backend:
 
-Run "npm start"
+Run "node main.js"
 
 In the frontend:
 
